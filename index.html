@@ -14,11 +14,12 @@
   <p>{{ userInfo.des }}</p>
   <p>{{ userInfo.name }}</p>
   <p>{{ userInfo.age }}</p>
+  <p>{{ calcUserInfoName }}</p>
   介绍：{{userInfo.des}}
 </div>
 <script src="./dist/vue.js"></script>
 <script>
-  new Vue({
+  let vue = new Vue({
     el: '#app',
     data () {
       return {
@@ -31,7 +32,11 @@
         textData: '铁汁'
       }
     },
-
+    computed: {
+      calcUserInfoName () {
+        return '名字: ' + this.userInfo.name
+      }
+    },
     methods: {
       handleClick () {
         alert(1);
