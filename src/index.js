@@ -1,5 +1,6 @@
-import { Complier } from './compiler/compiler'
-import { proxy2Vm } from './utils/utils';
+import {Complier} from './compiler/compiler';
+import {Observer} from './core/observer/observer';
+import {proxy2Vm} from './utils/utils';
 
 export default class Vue {
   constructor(options) {
@@ -12,6 +13,7 @@ export default class Vue {
     proxy2Vm(this, methods);
     proxy2Vm(this, computed);
 
+    new Observer(this.$data, this);
     new Complier(this.$el, this);
   }
 }

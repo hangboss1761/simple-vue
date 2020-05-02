@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MVVM原理</title>
-</head>
-<body>
-<div id="app">
-  <input type="text" v-model="userInfo.des">
-  <div v-html="htmlData"></div>
-  <div v-text="textData" ></div>
-  <div @click="handleClick">click</div>
-  <p>{{ userInfo.des }}</p>
-  <p>{{ userInfo.name }}</p>
-  <p>{{ userInfo.age }}</p>
-  <p>{{ calcUserInfoName }}</p>
-  介绍：{{userInfo.des}}
-</div>
-<script src="./dist/vue.js"></script>
-<script>
-  let vue = new Vue({
-    el: '#app',
-    data () {
-      return {
-        userInfo: {
-          des: '一个喜欢唱跳Rap的小伙汁',
-          name: '小明',
-          age: 18
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MVVM原理</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <input type="text" v-model="userInfo.des" />
+      <div v-html="htmlData"></div> -->
+      <div v-text="textData"></div>
+      <!-- <div @click="handleClick">click</div>
+      <p>{{ userInfo.des }}</p>
+      <p>{{ userInfo.name }}</p>
+      <p>{{ userInfo.age }}</p>
+      <p>{{ calcUserInfoName }}</p>
+      介绍：{{userInfo.des}} -->
+    </div>
+    <script src="./dist/vue.js"></script>
+    <script>
+      let vue = new Vue({
+        el: '#app',
+        data() {
+          return {
+            userInfo: {
+              des: '一个喜欢唱跳Rap的小伙汁',
+              name: '小明',
+              age: 18,
+            },
+            htmlData: `<p>hello</p>`,
+            textData: '铁汁',
+          };
         },
-        htmlData: `<p>hello</p>`,
-        textData: '铁汁'
-      }
-    },
-    computed: {
-      calcUserInfoName () {
-        return '名字: ' + this.userInfo.name
-      }
-    },
-    methods: {
-      handleClick () {
-        alert(1);
-      }
-    }
-  })
-</script>
-</body>
+        computed: {
+          calcUserInfoName() {
+            return '名字: ' + this.userInfo.name;
+          },
+        },
+        methods: {
+          handleClick() {
+            alert(1);
+          },
+        },
+      });
+    </script>
+  </body>
 </html>
